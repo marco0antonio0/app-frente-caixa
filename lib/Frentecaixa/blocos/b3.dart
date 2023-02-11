@@ -26,35 +26,29 @@ class _b3State extends State<b3> {
   @override
   Widget build(BuildContext context) {
     Db_banco banco = Db_banco.instance;
+    double largura = MediaQuery.of(context).size.width;
 
     return Column(
       children: [
         //======================================
         Container(
             height: 80,
-            child: Row(children: [
-              Expanded(
-                flex: 100,
-                child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 3),
-                    child: TextField(
-                        onSubmitted: (Value) {
-                          setState(() {});
-                        },
-                        controller: controller,
-                        cursorColor: Colors.white,
-                        decoration: InputDecoration(
-                            fillColor: Color(0xff5D6067),
-                            filled: true,
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20))))),
-              ),
-              InkWell(
-                  onTap: () {
-                    setState(() {});
-                  },
-                  child: Btn_pesquisar(controller))
-            ])),
+            width: largura > 600 ? 500 : largura,
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            child: TextField(
+                onChanged: (value) {
+                  setState(() {});
+                },
+                onSubmitted: (Value) {
+                  setState(() {});
+                },
+                controller: controller,
+                cursorColor: Colors.white,
+                decoration: InputDecoration(
+                    fillColor: Color(0xff5D6067),
+                    filled: true,
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20))))),
         //======================================
         FutureBuilder(
             future: banco.Select_one(controller.text),

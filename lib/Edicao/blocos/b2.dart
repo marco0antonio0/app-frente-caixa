@@ -61,11 +61,13 @@ class _b2State extends State<b2> {
         WidgetTextInput(
           texto: 'Valor',
           controller: valor_controller,
+          tipoDeTeclado: TextInputType.number,
         ),
         //=======================================================================
         WidgetTextInput(
           texto: 'qtds de produto',
           controller: qtds_controller,
+          tipoDeTeclado: TextInputType.number,
         ),
         InkWell(
             onTap: () async {

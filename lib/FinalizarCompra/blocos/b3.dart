@@ -23,38 +23,42 @@ class _b3State extends State<b3> {
 
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 30),
-      child: Flexible(
-          child: Column(
-        children: [
-          //========================
-          Container(
-              alignment: Alignment.centerLeft,
-              margin: EdgeInsets.symmetric(vertical: 10),
-              child:
-                  Texto(texto: 'Total da compra: ' + '$total', fontsize: 30.0)),
-          //========================
-          Container(
-              alignment: Alignment.centerLeft,
-              margin: EdgeInsets.symmetric(vertical: 10),
-              child: Texto(
-                  texto: total > double.parse(controller.text)
-                      ? 'Valor recebido insuficiente para pagar as compras'
-                      : total == double.parse(controller.text)
-                          ? 'Valor recebido certinho'
-                          : 'Troco: ' +
-                              '${double.parse(controller.text) - total}',
-                  fontsize: 30.0)),
-          //========================
-          Container(
-            margin: EdgeInsets.only(bottom: 10),
-            child: WidgetTextInput(
-              controller: controller,
-              texto: 'Digite o valor recebido do cliente',
-              tipoDeTeclado: TextInputType.number,
+      child: Container(
+        width: largura,
+        child: Column(
+          children: [
+            //========================
+            Container(
+                alignment: Alignment.centerLeft,
+                height: 70,
+                child: Texto(
+                    texto: 'Total da compra: ' + '$total', fontsize: 30.0)),
+            //========================
+            Container(
+                height: 170,
+                alignment: Alignment.centerLeft,
+                child: Texto(
+                    texto: total > double.parse(controller.text)
+                        ? 'Valor recebido insuficiente para pagar as compras'
+                        : total == double.parse(controller.text)
+                            ? 'Valor recebido certinho'
+                            : 'Troco: ' +
+                                '${double.parse(controller.text) - total}',
+                    fontsize: 30.0)),
+            //========================
+            Container(
+              width: largura,
+              height: 200,
+              margin: EdgeInsets.only(bottom: 10),
+              child: WidgetTextInput(
+                controller: controller,
+                texto: 'Digite o valor recebido do cliente',
+                tipoDeTeclado: TextInputType.number,
+              ),
             ),
-          ),
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 }
